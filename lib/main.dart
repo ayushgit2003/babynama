@@ -41,17 +41,18 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(right: 8,top : 4),
-      child: Scaffold(
+    return Scaffold(
+      backgroundColor: Color(0xff1e293b),
+      appBar: AppBar(
         backgroundColor: Colors.black,
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          title: SizedBox(
-              height: 80, width: 135, child:Image.asset('assets/logo-new.jpeg',) ),
-          actions: [
-            Center(
+        title: SizedBox(
+            height: 80, width: 135, child:Image.asset('assets/logo-new.jpeg',) ),
+        actions: [
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 4),
               child: Container(
+                margin: EdgeInsets.only(right: 8,bottom: 4),
                 height: 47,
                 width: 47,
                 decoration: BoxDecoration(
@@ -69,11 +70,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                 ),
               ),
-            )
-          ],
-        ),
-        body: ,
+            ),
+          )
+        ],
       ),
+
     );
   }
 }
