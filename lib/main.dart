@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black26,
+      backgroundColor: Color(0xff1e293b),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.black,
@@ -128,9 +128,21 @@ class _MyHomePageState extends State<MyHomePage> {
           const SizedBox(
             height: 20,
           ),
-          const Column(
+           Column(
+             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-               CarePlanDetails(),
+               CarePlanDetails(PackageName: "Basic Care",
+                 Price: "₹999",
+                 Description: "Pediatric care in 15 minutes",
+               ),
+              CarePlanDetails(PackageName: "Prime Care",
+                Price: "₹1999",
+                Description: "Pediatric care in 15 minutes,\nlactation, nutrition, monthly \nmilestones, emergency\n support",
+              ),
+              CarePlanDetails(PackageName: "Holistic Care",
+                Price: "₹3998",
+                Description: "Dedicated pediatrician for your\nbaby, personal care plan, Best\npossible baby care.",
+              ),
             ],
           )
       ]
