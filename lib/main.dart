@@ -1,4 +1,5 @@
 import 'package:babynama/utils/CarePlanDetails.dart';
+import 'package:babynama/utils/QuestionFaq.dart';
 import 'package:babynama/utils/button1.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -107,20 +108,28 @@ class _MyHomePageState extends State<MyHomePage> {
                   const SizedBox(
                     width: 20,
                   ),
-                  Container(
-                    alignment: Alignment.center,
-                    height: 40,
-                    width: 90,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(
-                          color: Colors.blue,
-                          width: 1,
-                        )),
-                    child: Text(
-                      "3 Months",
-                      style: GoogleFonts.poppins(color: Colors.lightBlue),
+                  InkWell(
+                    onTap: (){
+                      setState(() {
+
+
+                      });
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 40,
+                      width: 90,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                            color: Colors.blue,
+                            width: 1,
+                          )),
+                      child: Text(
+                        "3 Months",
+                        style: GoogleFonts.poppins(color: Colors.lightBlue),
+                      ),
                     ),
                   ),
                 ],
@@ -210,6 +219,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 17,
                 ),
                 CommonButton(ButtonName:"Contact Us"),
+                const SizedBox(
+                  height: 17,
+                ),
+                Question(),
               ],
             ),
           )
