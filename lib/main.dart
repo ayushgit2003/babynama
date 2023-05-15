@@ -1,4 +1,5 @@
 import 'package:babynama/utils/CarePlanDetails.dart';
+import 'package:babynama/utils/button1.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -71,83 +72,149 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body: ListView(
-        children: [Column(
-          children: [
-            Text(
-              "Our Care Plans",
-              style: GoogleFonts.poppins(
-                  color: Colors.lightBlue[200],
-                  fontSize: 33,
-                  fontWeight: FontWeight.w600),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  alignment: Alignment.center,
-                  height: 40,
-                  width: 90,
-                  decoration: BoxDecoration(
-                    color: const Color(0xff2563eb),
-                    borderRadius: BorderRadius.circular(10),
-                    // border: Border.all(color: Colors.lightBlue, width :1,)
-                  ),
-                  child: Text(
-                    "1 Month",
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
+        children: [
+          Column(
+            children: [
+              Text(
+                "Our Care Plans",
+                style: GoogleFonts.poppins(
+                    color: Colors.lightBlue[200],
+                    fontSize: 33,
+                    fontWeight: FontWeight.w600),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    alignment: Alignment.center,
+                    height: 40,
+                    width: 90,
+                    decoration: BoxDecoration(
+                      color: const Color(0xff2563eb),
+                      borderRadius: BorderRadius.circular(10),
+                      // border: Border.all(color: Colors.lightBlue, width :1,)
+                    ),
+                    child: Text(
+                      "1 Month",
+                      style: GoogleFonts.poppins(
+                        color: Colors.white,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  height: 40,
-                  width: 90,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: Colors.blue,
-                        width: 1,
-                      )),
-                  child: Text(
-                    "3 Months",
-                    style: GoogleFonts.poppins(color: Colors.lightBlue),
+                  const SizedBox(
+                    width: 20,
                   ),
-                ),
-              ],
-            )
-          ],
-        ),
+                  Container(
+                    alignment: Alignment.center,
+                    height: 40,
+                    width: 90,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Colors.blue,
+                          width: 1,
+                        )),
+                    child: Text(
+                      "3 Months",
+                      style: GoogleFonts.poppins(color: Colors.lightBlue),
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
           const SizedBox(
             height: 20,
           ),
-           Column(
-             mainAxisAlignment: MainAxisAlignment.spaceAround,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-               CarePlanDetails(PackageName: "Basic Care",
-                 Price: "₹999",
-                 Description: "Pediatric care in 15 minutes",
-               ),
-              CarePlanDetails(PackageName: "Prime Care",
-                Price: "₹1999",
-                Description: "Pediatric care in 15 minutes,\nlactation, nutrition, monthly \nmilestones, emergency\n support",
+              CarePlanDetails(
+                PackageName: "Basic Care",
+                Price: "₹999",
+                Description: "Pediatric care in 15 minutes",
               ),
-              CarePlanDetails(PackageName: "Holistic Care",
+              CarePlanDetails(
+                PackageName: "Prime Care",
+                Price: "₹1999",
+                Description:
+                    "Pediatric care in 15 minutes,\nlactation, nutrition, monthly \nmilestones, emergency\n support",
+              ),
+              CarePlanDetails(
+                PackageName: "Holistic Care",
                 Price: "₹3998",
-                Description: "Dedicated pediatrician for your\nbaby, personal care plan, Best\npossible baby care.",
+                Description:
+                    "Dedicated pediatrician for your\nbaby, personal care plan, Best\npossible baby care.",
               ),
             ],
-          )
-      ]
-      ),
+          ),
+          const SizedBox(
+            height: 40,
+          ),
+          Container(
+            alignment: Alignment.center,
+            child: Column(
+              children: [
+                Text(
+                  " Hear from \nBabynama \n   Parents",
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                    fontSize: 36,
+                    height: 1.0,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  " We are proud to have helped \n"
+                      "        thousands of parents",
+                  style: GoogleFonts.poppins(
+                    color: Color(0xff94a3b8),
+                    fontSize: 20,
+                    height: 1.3,
+                    fontWeight: FontWeight.w500
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  "FAQs for Our\n Care Plans",
+                  style: GoogleFonts.mavenPro(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w600,
+                    height: 1.0,
+                    letterSpacing: .5
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  "Do you have other questions?",
+                  style: GoogleFonts.mavenPro(
+                    color: Color(0xff94a3b8),
+                    fontSize: 20,
+                    height: 1.0,
 
+                  ),
+                ),
+                const SizedBox(
+                  height: 17,
+                ),
+                CommonButton(ButtonName:"Contact Us"),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
