@@ -1,6 +1,7 @@
 import 'package:babynama/utils/CarePlanDetails.dart';
 import 'package:babynama/utils/QuestionFaq.dart';
 import 'package:babynama/utils/button1.dart';
+import 'package:babynama/utils/button2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -89,49 +90,8 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    alignment: Alignment.center,
-                    height: 40,
-                    width: 90,
-                    decoration: BoxDecoration(
-                      color: const Color(0xff2563eb),
-                      borderRadius: BorderRadius.circular(10),
-                      // border: Border.all(color: Colors.lightBlue, width :1,)
-                    ),
-                    child: Text(
-                      "1 Month",
-                      style: GoogleFonts.poppins(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  InkWell(
-                    onTap: (){
-                      setState(() {
+                 MonthDuration1(),
 
-
-                      });
-                    },
-                    child: Container(
-                      alignment: Alignment.center,
-                      height: 40,
-                      width: 90,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                            color: Colors.blue,
-                            width: 1,
-                          )),
-                      child: Text(
-                        "3 Months",
-                        style: GoogleFonts.poppins(color: Colors.lightBlue),
-                      ),
-                    ),
-                  ),
                 ],
               )
             ],
