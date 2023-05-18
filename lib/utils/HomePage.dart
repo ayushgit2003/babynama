@@ -1,9 +1,14 @@
 import 'package:babynama/utils/QuestionFaq.dart';
 // import 'package:babynama/utils/button1.dart';
 import 'package:flutter/material.dart';
+import 'package:babynama/CarePlansCards/BasicCareCard.dart';
+import 'package:babynama/CarePlansCards/PrimeCareCard.dart';
+import 'package:babynama/CarePlansCards/HolisticCareCard.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MyHomePage extends StatefulWidget {
+
+
   const MyHomePage({
     super.key,
   });
@@ -11,10 +16,29 @@ class MyHomePage extends StatefulWidget {
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
+bool KnowMoreClick=true;
+ bool click = true;
+Widget CardButton(String ButtonName) {
+  return Container(
+    alignment: Alignment.center,
+    height: 40,
+    width: 120,
+    decoration: BoxDecoration(
+      color: const Color(0xff2563eb),
+      borderRadius: BorderRadius.circular(5),
+      // border: Border.all(color: Colors.lightBlue, width :1,)
+    ),
+    child: Text(
+      ButtonName,
+      style: GoogleFonts.poppins(
+          color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),
+    ),
+  );
 
+}
 class _MyHomePageState extends State<MyHomePage> {
-  bool click = true;
-  bool KnowMoreClick=true;
+
+
   final String PackageName = "";
   final String Price = "";
   final String Description = "";
@@ -22,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final String RefundPolicy = "";
   final double CardHeight = 0.0;
   final double ShownHeight = 0.0;
-  final String ButtonName="";
+  final String ButtonName = "";
 
   @override
   Widget build(BuildContext context) {
@@ -149,39 +173,9 @@ class _MyHomePageState extends State<MyHomePage> {
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              CarePlans(
-                "Basic Care",
-                (click == true) ? "₹999" : "₹2499",
-                "Pediatric care in 15 minutes",
-                 (click == true) ? "Per Month" : "Per 3 Month",
-                  (click == true) ? "" : "10 days Refund Policy",
-                220,
-                30
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              CarePlans(
-                 "Prime Care",
-                (click == true) ? "₹1999" : "₹4999",
-                "Pediatric care in 15 minutes,\nlactation, nutrition, monthly \nmilestones, emergency\n support",
-                (click == true) ? "Per Month" : "Per 3 Month",
-                (click == true) ? "" : "10 days Refund Policy",
-                (KnowMoreClick == true)?280:360,
-                80
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              CarePlans(
-                 "Holistic Care",
-                (click == true) ? "₹3998" : "₹9999",
-                "Dedicated pediatrician for your\nbaby, personal care plan, Best\npossible baby care.",
-                (click == true) ? "Per Month" : "Per 3 Month",
-                 (click == true) ? "" : "10 days Refund Policy",
-                280,
-                60
-              ),
+              Card1(),
+              Card2(),
+              Card3(),
             ],
           ),
           const SizedBox(
@@ -251,144 +245,126 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget CarePlans (String PackageName, String Price, String Description,
-      String PlanDuration, String RefundPolicy, double CardHeight,double ShownHeight) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Card(
-        elevation: 10,
-        shadowColor: Colors.black,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
-        ),
-        child: Container(
-          height: CardHeight,
-          width: 400,
-          decoration: BoxDecoration(
-            color: Color(0xff1e293b),
-          ),
-//     boxShadow: [
-//   BoxShadow(
-//     spreadRadius: 5, //spread radius
-//     color: Colors.white24,
-//   ),
-// ] ,
-          child: Padding(
-            padding: const EdgeInsets.only(top: 10.0, left: 12, right: 10.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  PackageName,
-                  style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontSize: 23,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Container(
-                        height:  ShownHeight,
-                  child: Row(
-                    children: [
-                      const Icon(
-                        Icons.check,
-                        color: Colors.green,
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      Text(Description,
-                          style: GoogleFonts.poppins(
-                            color: Color(0xffe5e7eb),
-                            height: 1.2,
-                            fontSize: 14,
-                          ))
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      Price,
-                      style: GoogleFonts.poppins(
-                          fontSize: 16,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          PlanDuration,
-                          style: GoogleFonts.poppins(
-                              fontSize: 12, color: Color(0xffffffff)),
-                        ),
-                        Text(
-                          RefundPolicy,
-                          style: GoogleFonts.poppins(
-                              fontSize: 12,
-                              color: Color(0xffffffff),
-                              fontWeight: FontWeight.w500),
-                        ),
-                        Container(
+//   Widget CarePlans(
+//       String PackageName,
+//       String Price,
+//       String Description,
+//       String PlanDuration,
+//       String RefundPolicy,
+//       double CardHeight,
+//       double ShownHeight) {
+//     return Padding(
+//       padding: const EdgeInsets.symmetric(horizontal: 20),
+//       child: Card(
+//         elevation: 10,
+//         shadowColor: Colors.black,
+//         shape: RoundedRectangleBorder(
+//           borderRadius: BorderRadius.circular(20.0),
+//         ),
+//         child: Container(
+//           height: CardHeight,
+//           width: 400,
+//           decoration: BoxDecoration(
+//             color: Color(0xff1e293b),
+//           ),
+// //     boxShadow: [
+// //   BoxShadow(
+// //     spreadRadius: 5, //spread radius
+// //     color: Colors.white24,
+// //   ),
+// // ] ,
+//           child: Padding(
+//             padding: const EdgeInsets.only(top: 10.0, left: 12, right: 10.0),
+//             child: Column(
+//               crossAxisAlignment: CrossAxisAlignment.start,
+//               children: [
+//                 Text(
+//                   PackageName,
+//                   style: GoogleFonts.poppins(
+//                     color: Colors.white,
+//                     fontSize: 23,
+//                     fontWeight: FontWeight.w600,
+//                   ),
+//                 ),
+//                 const SizedBox(
+//                   height: 20,
+//                 ),
+//                 Container(
+//                   height: ShownHeight,
+//                   child: Row(
+//                     children: [
+//                       const Icon(
+//                         Icons.check,
+//                         color: Colors.green,
+//                       ),
+//                       const SizedBox(
+//                         width: 8,
+//                       ),
+//                       Text(Description,
+//                           style: GoogleFonts.poppins(
+//                             color: Color(0xffe5e7eb),
+//                             height: 1.2,
+//                             fontSize: 14,
+//                           ))
+//                     ],
+//                   ),
+//                 ),
+//                 const SizedBox(
+//                   height: 8,
+//                 ),
+//                 Column(
+//                   crossAxisAlignment: CrossAxisAlignment.start,
+//                   children: [
+//                     Text(
+//                       Price,
+//                       style: GoogleFonts.poppins(
+//                           fontSize: 16,
+//                           color: Colors.white,
+//                           fontWeight: FontWeight.w600),
+//                     ),
+//                     Row(
+//                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                       children: [
+//                         Text(
+//                           PlanDuration,
+//                           style: GoogleFonts.poppins(
+//                               fontSize: 12, color: Color(0xffffffff)),
+//                         ),
+//                         Text(
+//                           RefundPolicy,
+//                           style: GoogleFonts.poppins(
+//                               fontSize: 12,
+//                               color: Color(0xffffffff),
+//                               fontWeight: FontWeight.w500),
+//                         ),
+//                         Container(),
+//                       ],
+//                     ),
+//                     const SizedBox(
+//                       height: 18,
+//                     ),
+//                     Row(
+//                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                       children: [
+//                         GestureDetector(
+//                           onTap:
+//                                   (){
+//                                 setState(() {
+//                                   KnowMoreClick=!KnowMoreClick;
+//                                 });
+//                               },
+//                             child: CardButton("Know More")),
+//                         CardButton("Get Started"),
+//                       ],
+//                     )
+//                   ],
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
 
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 18,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        CardButton("Know More"),
-                        CardButton("Get Started"),
-                      ],
-                    )
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-  Widget CardButton(String ButtonName){
-    return   GestureDetector(
-      onTap: (){
-        setState(() {
-          KnowMoreClick=!KnowMoreClick;
-        });
-      },
-      child: Container(
-        alignment: Alignment.center,
-        height: 40,
-        width: 120,
-        decoration: BoxDecoration(
-          color: const Color(0xff2563eb),
-          borderRadius: BorderRadius.circular(5),
-          // border: Border.all(color: Colors.lightBlue, width :1,)
-        ),
-        child: Text(
-          ButtonName,
-          style: GoogleFonts.poppins(
-              color: Colors.white,
-              fontSize: 15,
-              fontWeight: FontWeight.w600
-          ),
-        ),
-      ),
-
-    );
-
-  }
-  }
-
+}
