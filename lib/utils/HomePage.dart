@@ -19,19 +19,25 @@ class MyHomePage extends StatefulWidget {
 bool KnowMoreClick=true;
  bool click = true;
 Widget CardButton(String ButtonName) {
-  return Container(
-    alignment: Alignment.center,
-    height: 40,
-    width: 120,
-    decoration: BoxDecoration(
-      color: const Color(0xff2563eb),
-      borderRadius: BorderRadius.circular(5),
-      // border: Border.all(color: Colors.lightBlue, width :1,)
+  return Card(
+    elevation: 10,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(20.0),
     ),
-    child: Text(
-      ButtonName,
-      style: GoogleFonts.poppins(
-          color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),
+    child: Container(
+      alignment: Alignment.center,
+      height: 40,
+      width: 120,
+      decoration: BoxDecoration(
+        color: const Color(0xff2563eb),
+        borderRadius: BorderRadius.circular(6),
+        // border: Border.all(color: Colors.lightBlue, width :1,)
+      ),
+      child: Text(
+        ButtonName,
+        style: GoogleFonts.poppins(
+            color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),
+      ),
     ),
   );
 
