@@ -5,6 +5,7 @@ import 'package:babynama/CarePlansCards/BasicCareCard.dart';
 import 'package:babynama/CarePlansCards/PrimeCareCard.dart';
 import 'package:babynama/CarePlansCards/HolisticCareCard.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:babynama/components/CarouselSlider.dart';
 
 class MyHomePage extends StatefulWidget {
 
@@ -19,6 +20,7 @@ class MyHomePage extends StatefulWidget {
 bool KnowMoreClick=true;
  bool click = true;
 Widget CardButton(String ButtonName) {
+
   return Card(
     elevation: 10,
     shape: RoundedRectangleBorder(
@@ -45,25 +47,19 @@ Widget CardButton(String ButtonName) {
 class _MyHomePageState extends State<MyHomePage> {
 
 
-  final String PackageName = "";
-  final String Price = "";
-  final String Description = "";
-  final String PlanDuration = "";
-  final String RefundPolicy = "";
-  final double CardHeight = 0.0;
-  final double ShownHeight = 0.0;
-  final String ButtonName = "";
+
 
   @override
   Widget build(BuildContext context) {
+    var _mediaQuery = MediaQuery.of(context);
     return Scaffold(
       backgroundColor: Color(0xff1e293b),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.black,
         title: SizedBox(
-            height: 80,
-            width: 135,
+            height:_mediaQuery.size.height*0.08,
+            width: _mediaQuery.size.width*0.32,
             child: Image.asset(
               'assets/logo-new.jpeg',
             )),
@@ -72,9 +68,9 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Padding(
               padding: const EdgeInsets.only(bottom: 4),
               child: Container(
-                margin: EdgeInsets.only(right: 8, bottom: 4),
-                height: 47,
-                width: 47,
+                margin: EdgeInsets.only(right: 8, bottom: 2),
+                height:_mediaQuery.size.height*0.07,
+                width: _mediaQuery.size.width*0.14,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(
@@ -107,8 +103,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     fontSize: 33,
                     fontWeight: FontWeight.w600),
               ),
-              const SizedBox(
-                height: 10,
+                SizedBox(
+                height:_mediaQuery.size.height*0.02,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -121,8 +117,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                     child: Container(
                       alignment: Alignment.center,
-                      height: 40,
-                      width: 90,
+                      height:_mediaQuery.size.height*0.06,
+                      width: _mediaQuery.size.width*0.35,
                       decoration: BoxDecoration(
                         color:
                             (click == true) ? Color(0xff2563eb) : Colors.white,
@@ -149,8 +145,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                     child: Container(
                       alignment: Alignment.center,
-                      height: 40,
-                      width: 90,
+                      height:_mediaQuery.size.height*0.06,
+                      width: _mediaQuery.size.width*0.35,
                       decoration: BoxDecoration(
                           color: (click == true)
                               ? Colors.white
@@ -173,8 +169,8 @@ class _MyHomePageState extends State<MyHomePage> {
               )
             ],
           ),
-          const SizedBox(
-            height: 20,
+           SizedBox(
+            height:_mediaQuery.size.height*0.03,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -184,8 +180,8 @@ class _MyHomePageState extends State<MyHomePage> {
               Card3(),
             ],
           ),
-          const SizedBox(
-            height: 40,
+          SizedBox(
+            height:_mediaQuery.size.height*0.04,
           ),
           Container(
             alignment: Alignment.center,
@@ -200,8 +196,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 1.0,
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: _mediaQuery.size.height*0.02,
                 ),
                 Text(
                   " We are proud to have helped \n"
@@ -212,8 +208,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 1.3,
                       fontWeight: FontWeight.w500),
                 ),
-                const SizedBox(
-                  height: 20,
+                 SizedBox(
+                  height: _mediaQuery.size.height*0.03,
+                ),
+                Carousel(),
+                SizedBox(
+                  height: _mediaQuery.size.height*0.07,
                 ),
                 Text(
                   "FAQs for Our\n Care Plans",
@@ -224,8 +224,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 1.0,
                       letterSpacing: .5),
                 ),
-                const SizedBox(
-                  height: 20,
+                 SizedBox(
+                  height: _mediaQuery.size.height*0.03,
                 ),
                 Text(
                   "Do you have other questions?",
@@ -235,16 +235,21 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 1.0,
                   ),
                 ),
-                const SizedBox(
-                  height: 17,
+                SizedBox(
+                  height: _mediaQuery.size.height*0.03,
                 ),
                 CardButton("Contact Us"),
+                SizedBox(
+                  height: _mediaQuery.size.height*0.02,
+                ),
+                Question(),
                 const SizedBox(
                   height: 17,
                 ),
-                Question(),
+
               ],
             ),
+
           )
         ],
       ),

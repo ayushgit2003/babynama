@@ -13,6 +13,7 @@ class _Card1State extends State<Card1> {
   bool BasicKnowMoreClick = true;
   @override
   Widget build(BuildContext context) {
+    var _mediaQuery = MediaQuery.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Card(
@@ -22,7 +23,7 @@ class _Card1State extends State<Card1> {
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: Container(
-          height: (BasicKnowMoreClick == true) ? 260 : 380,
+          height: (BasicKnowMoreClick == true) ? _mediaQuery.size.height*0.35: _mediaQuery.size.height*0.6,
           width: 400,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
@@ -41,8 +42,8 @@ class _Card1State extends State<Card1> {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: _mediaQuery.size.height*0.02,
                 ),
                 Container(
                   height: (BasicKnowMoreClick == true) ? 24: 180,
@@ -59,9 +60,9 @@ class _Card1State extends State<Card1> {
                 ),
 
 
-                       SizedBox(
-                        height: 8,
-                      ),
+                SizedBox(
+                  height: _mediaQuery.size.height*0.015,
+                ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
